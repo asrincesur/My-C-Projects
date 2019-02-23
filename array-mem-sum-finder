@@ -1,0 +1,101 @@
+using System;
+
+namespace ConsoleApp6
+{
+    class Program
+    {
+          public static void aligner(int[] ry){
+            int switcher;
+
+            for (int i = 0; i <=ry.Length-1 ; i++)
+            {
+                for (int j = 0; j <= ry.Length - 1; j++)
+                {
+
+                    if (ry[i] < ry[j + 1])
+                    {
+
+                        switcher = ry[j];
+                        ry[j] = ry[j + 1];
+                        ry[j + 1] = switcher;
+
+
+
+
+                    }
+                }
+
+            }
+
+        }
+
+
+
+
+
+
+
+        static void Main(string[] args)
+        {
+            Console.Write("length of array:");
+            int n = Int32.Parse(Console.ReadLine());
+            int flag = 0;
+            Console.Write("component that you want to find  in the arrray: ");
+            int comp=Int32.Parse(Console.ReadLine());
+            int[] ry = new int[n];
+            Console.WriteLine("assign numbers you want to  align: ");
+
+            for (int i = 0; i < n; i++)
+            {
+                ry[i] = Convert.ToInt16(Console.ReadLine());
+            }
+
+      
+
+            aligner(ry);
+
+            foreach (int d in ry) Console.Write(" "+d);
+ /*
+            // control of the  number,  wheter  is not exist in the  array.
+            //  rest of array that right of side of the number is allways bigger than number 
+            for(int i=0; i < ry.Length; i++)
+            {
+                if (ry[i] > comp)
+                                  flag++;
+            }
+
+
+           
+
+            for(int i=0; i<flag; i++)
+            {
+                 for(int j = i+1; j < flag; j++)
+                {
+                    if (comp == ry[i] + ry[j])
+                    {
+                        Console.Write("sum of {0}.index and {1}.index equals = {2} ", i, j, comp);
+                    }
+                }
+            }
+                
+    */
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            Console.Read();
+        }
+    }
+}
