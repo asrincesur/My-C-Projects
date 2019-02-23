@@ -4,23 +4,21 @@ namespace ConsoleApp6
 {
     class Program
     {
-          public static void aligner(int[] ry){
-            int switcher;
+        public static void aligner(int[] ry)
+        {
+            int switcher=0;
 
-            for (int i = 0; i <=ry.Length-1 ; i++)
+            for (int i = 0; i < ry.Length - 1; i++)
             {
-                for (int j = 0; j <= ry.Length - 1; j++)
+                for (int j = 0; j < ry.Length - 1; j++)
                 {
 
-                    if (ry[i] < ry[j + 1])
+                    if (ry[j] < ry[j + 1])
                     {
 
                         switcher = ry[j];
                         ry[j] = ry[j + 1];
                         ry[j + 1] = switcher;
-
-
-
 
                     }
                 }
@@ -41,7 +39,7 @@ namespace ConsoleApp6
             int n = Int32.Parse(Console.ReadLine());
             int flag = 0;
             Console.Write("component that you want to find  in the arrray: ");
-            int comp=Int32.Parse(Console.ReadLine());
+            int comp = Int32.Parse(Console.ReadLine());
             int[] ry = new int[n];
             Console.WriteLine("assign numbers you want to  align: ");
 
@@ -50,39 +48,45 @@ namespace ConsoleApp6
                 ry[i] = Convert.ToInt16(Console.ReadLine());
             }
 
-      
+
 
             aligner(ry);
+            Array.Reverse(ry);
+            foreach (int d in ry) Console.Write(" " + d);
+            Console.WriteLine("");
+            // everyting is clear
+            //           
 
-            foreach (int d in ry) Console.Write(" "+d);
- /*
             // control of the  number,  wheter  is not exist in the  array.
             //  rest of array that right of side of the number is allways bigger than number 
-            for(int i=0; i < ry.Length; i++)
+
+            for (int i = 0; i < ry.Length; i++)
             {
-                if (ry[i] > comp)
-                                  flag++;
+                if (ry[i] >= comp)
+                    flag++;
             }
 
 
-           
+            Console.WriteLine(flag);
+            Console.WriteLine("");
 
-            for(int i=0; i<flag; i++)
-            {
-                 for(int j = i+1; j < flag; j++)
-                {
-                    if (comp == ry[i] + ry[j])
-                    {
-                        Console.Write("sum of {0}.index and {1}.index equals = {2} ", i, j, comp);
-                    }
-                }
-            }
-                
-    */
+            
+
+                       for(int i=0; i<flag+1; i++)
+                       {
+                            for(int j = i+1; j < flag+1; j++)
+                           {
+                               if (comp == ry[i] + ry[j])
+                               {
+                                   Console.Write("sum of {0}.index and {1}.index equals = {2} ", i, j , comp);
+                               }
+                           }
+                       }
+
+      
+
+
     
-
-
-
 
 
 
