@@ -1,0 +1,235 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Öğrenci_Bilgi_Sistemi
+{
+
+    class Program
+    {
+        static int p = 0;
+        struct Ders
+        {
+            public string dersKodu;
+            public int kontenjan;
+        }
+        struct Ogrenci
+        {
+            public string no, isim, soyisim, vize, final;
+        }
+        static int sil(ref Ders[] dersler, string derskd, int idx)
+        {
+            for (int i = 0; i < dersler.Length; i++)
+            {
+                if (dersler[i].dersKodu == derskd)
+                {
+                    for (int j = i; j < dersler.Length; j++)
+                    {
+                        dersler[j].dersKodu = dersler[j + 1].dersKodu;
+                        dersler[j].kontenjan = dersler[j + 1].kontenjan;
+                        idx = idx - 1;
+                        return idx;
+                    }
+                }
+
+            }
+            Console.WriteLine("Ders Bulunanmadı.");
+            return idx;
+        }
+        static int sil1(ref Ogrenci[] ogrenciler, string ogrno, int idx1)
+        {
+            for (int i = 0; i < ogrenciler.Length; i++)
+            {
+                if (ogrenciler[i].no == ogrno)
+                {
+                    for (int j = i; j < ogrenciler.Length; j++)
+                    {
+                        ogrenciler[j].no = ogrenciler[j + 1].no;
+                        ogrenciler[j].isim = ogrenciler[j + 1].isim;
+                        ogrenciler[j].soyisim = ogrenciler[j + 1].soyisim;
+                        idx1 = idx1 - 1;
+                        return idx1;
+                    }
+                }
+            }
+            Console.WriteLine("Öğrenci Bulunamadı.");
+            return idx1;
+        }
+        static void dersgor(ref Ders[] dersler, int idx)
+        {
+            for (int i = 0; i < idx; i++)
+            {
+                Console.WriteLine(dersler[i].dersKodu);
+            }
+        }
+        static void ogrgor(ref Ogrenci[] ogrenciler, int idx1)
+        {
+            for (int i = 0; i < idx1; i++)
+            {
+                Console.WriteLine("İsim & Soyisim = " + ogrenciler[i].isim + " " + ogrenciler[i].soyisim + "\nNumara= " + ogrenciler[i].no + "\nVize= " + ogrenciler[i].vize + "\nFinal=" + ogrenciler[i].final);
+            }
+        }
+        static void Main(string[] args)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+
+               Ogrenci[] ogrenciler = new Ogrenci[5];
+                int idx1 = 0;
+                int idx = 0;
+
+
+            while (true)
+            {
+               
+
+                Ders[] dersler = new Ders[5];
+
+                Ders ders = new Ders();
+                Console.WriteLine("Personel Bilgi Sistemi\nYapmak istediğiniz işlemi seçiniz.");
+                Ogrenci ogrenci = new Ogrenci();
+                Anamenu:
+                Console.Clear();
+                Console.WriteLine("1->Ders ekle\n2->Ders sil\n3->Dersleri listele\n4->Var olan dersi güncelle\n5->Uygulama Sonlandır");
+                int secim = Convert.ToInt32(Console.ReadLine());
+                if (secim == 1)
+                {
+                    Console.Clear();
+
+                    
+                    Console.Write("Dersin numarasını giriniz:");
+                    ders.dersKodu = Console.ReadLine();
+                    for (int i = 0; i < 5; i++)
+                    {
+                        if (dersler[i].dersKodu == ders.dersKodu)
+                        {
+                            Console.WriteLine("Bu numaradaki ders zaten mevcut.Başka bir Ders giriniz:");
+                            Console.WriteLine("Ana menüye dönmek için enter basınız.");
+                            Console.ReadLine();
+                            goto Anamenu;
+                        }
+                    }
+                  
+                    Console.WriteLine("Dersin kontenjanını giriniz:");
+                    ders.kontenjan = Convert.ToInt32(Console.ReadLine());
+                    dersler[idx] = ders;
+                   
+                    Console.WriteLine("Ders Başarı ile eklenmiştir.");
+                    Console.Clear();
+                    goto Anamenu;
+
+                }
+                if (secim == 2)
+                {
+                    string derskd;
+                    Console.Clear();
+                    Console.WriteLine("Silinmesini istediğiniz ders kodunu giriniz:");
+                    derskd = Console.ReadLine();
+                    idx = sil(ref dersler, derskd, idx);
+                    Console.WriteLine("İşlem Tamamlandı.");
+                    goto Anamenu;
+                }
+                if (secim == 3)
+                {
+                    Console.Clear();
+                    dersgor(ref dersler, idx);
+                    ogrgor(ref ogrenciler, idx1);
+                    Console.WriteLine("Devam etmek için bir tuşa basınız.");
+                    Console.ReadLine();
+                    goto Anamenu;
+                }
+                if (secim == 4)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Dersin kodunu giriniz:");
+                    string derskodu = Console.ReadLine();
+
+                    Yanmenu:
+                    Console.WriteLine("1->öğrenci ekle\n2->öğrenci sil\n3->öğrencileri listele\n4->Ana menüye dön");
+                    int islem2 = Convert.ToInt32(Console.ReadLine());
+
+                    if (islem2 == 1)
+                    {
+                        
+                        
+                        
+                           
+                            for(  ; p < ders.kontenjan; p++)
+                            {
+                            if (p != ders.kontenjan)
+                            {
+                                Console.Write("Öğrencinin numarasını giriniz:");
+                                ogrenci.no = Console.ReadLine();
+
+                                for (int i = 0; i < ogrenciler.Length; i++)
+                                {
+
+                                    if (ogrenciler[i].no == ogrenci.no)
+                                    {
+                                        Console.WriteLine("Bu numaradaki öğrenci zaten mevcut.Başka bir öğrenci giriniz:");
+                                        Console.WriteLine("Yan menüye dönmek için enter basınız.");
+                                        Console.ReadLine();
+                                        goto Yanmenu;
+                                    }
+
+                                }
+                                Console.Write("Öğrencinin ismini giriniz:");
+                                ogrenci.isim = Console.ReadLine();
+                                Console.Write("Öğrencinin soyadını giriniz:");
+                                ogrenci.soyisim = Console.ReadLine();
+                                Console.Write("Öğrencinin vize notunu giriniz:");
+                                ogrenci.vize = Console.ReadLine();
+                                Console.Write("Öğrencinin final notunu giriniz:");
+                                ogrenci.final = Console.ReadLine();
+                                Console.WriteLine("Öğrenci başarı ile eklenmiştir.");
+                                ogrenciler[idx1] = ogrenci;
+                                idx1++;
+                                Console.WriteLine("Devam etmek için bir tuşa basınız.");
+                                Console.ReadLine();
+                                Console.Clear();
+                                goto Yanmenu;
+                            }
+                              
+                            }
+                               
+                            
+                        
+                       
+                        }
+                    
+                    if (islem2 == 2)
+                    {
+                        string ogrno;
+                        Console.Clear();
+                        Console.WriteLine("Silinmesini istediğiniz öğrencinin numarasını giriniz:");
+                        ogrno = Console.ReadLine();
+                        idx1 = sil1(ref ogrenciler, ogrno, idx1);
+                        Console.WriteLine("İşlem Tamamlandı.");
+                        goto Yanmenu;
+                    }
+                    if (islem2 == 3)
+                    {
+                        Console.Clear();
+                        ogrgor(ref ogrenciler, idx1);
+                        Console.WriteLine("Devam etmek için bir tuşa basınız.");
+                        Console.ReadLine();
+                        Console.Clear();
+                        goto Yanmenu;
+                    }
+                    if (islem2 == 4)
+                    {
+                        goto Anamenu;
+                    }
+                }
+                if (secim == 5)
+                {
+                    break;
+                }
+            }
+            Console.Clear();
+            Console.WriteLine("Uygulama Sonlandı.İyi günler..");
+            Console.ReadLine();
+        }
+    }
+}
