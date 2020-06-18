@@ -1,0 +1,83 @@
+using System;
+class HelloWorld
+{
+    static double measure(double[,] pts)
+    {
+        double dist = 32637;
+        double ceil = 0;
+        for (int i = 0; i < pts.GetLength(0); i++)
+        {
+            for (int j = i+1; j < pts.GetLength(0); j++)
+            {
+               ceil = Math.Sqrt(Math.Pow(pts[i, 0] - pts[j, 0], 2) + Math.Pow(pts[i, 1] - pts[j, 1], 2));
+
+                if (ceil < dist)
+                    dist = ceil;
+
+
+
+                
+            }
+        }
+
+        return dist;
+    }
+
+
+
+
+    public static double[,] definearray(int rng)
+    {
+
+
+
+        double[,] points = new double[rng, 2];
+
+
+        for (int i = 0; i < rng; i++)
+        {
+            Console.WriteLine("{0}.point: ", i+1);
+            for (int j = 0; j < 2; j++)
+            {
+                points[i, j] = Convert.ToDouble(Console.ReadLine());
+            }
+
+        }
+
+
+
+        return points;
+
+
+
+    }
+    static void diziyaz(double[,] ponts)
+    {
+
+        for (int i = 0; i < ponts.GetLength(0); i++)
+        {
+
+            for (int j = 0; j < 2; j++)
+            {
+
+                Console.Write(" " + ponts[i, j]);
+            }
+            Console.WriteLine("");
+        }
+    }
+
+
+    static void Main()
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+
+        Console.WriteLine("pls assging range of array: ");
+        int n = Int16.Parse(Console.ReadLine());
+        double[,] pts = definearray(n);
+        Console.WriteLine("points: ");
+        diziyaz(pts);
+        Console.WriteLine("distances of closest points  : " + measure(pts));
+        Console.Read();
+    }
+}
+
