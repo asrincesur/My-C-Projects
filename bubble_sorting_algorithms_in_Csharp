@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace bubble_sorting_algorithms_in_C
+{
+    class Program
+    {
+
+
+        static void Main(string[] args)
+        {
+
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            int i, j;
+       
+            Random c = new Random();
+
+
+
+            int[] d = new int[10000];
+
+                for (i = 0; i < d.Length; i++)
+            {
+
+                d[i] = c.Next();
+            }
+
+
+            int gecici;
+            
+            for (i = 0; i < d.Length-1; i++)
+            {
+                for (j = 0; j < d.Length - 1; j++)
+                {
+                    if (d[j] < d[j + 1])
+                    {
+                        gecici = d[j];
+                        d[j] = d[j + 1];
+                        d[j + 1] = gecici;
+                    }
+                }
+
+
+            }
+            foreach (var p in d)
+            {
+                Console.WriteLine(p);
+            }
+
+
+            Console.Read();
+           
+
+            }
+           
+
+        }
+    }
+
