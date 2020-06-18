@@ -1,0 +1,44 @@
+using System;
+
+namespace Insertion
+{
+    class Program
+    {
+        public void Insertion(int[] arr)
+        {
+            int j,key;
+            for (int i = 1; i < arr.Length-1; i++)
+            {
+                key = arr[i];
+                j = i - 1;
+
+                while (j >= 0 && arr[j] > key)
+                {
+                    arr[j + 1] = arr[j];
+                    j = j - 1;
+                }
+                arr[j + 1] = key;
+            }
+        }
+        
+        
+        
+        static void Main(string[] args)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Program s = new Program();
+           
+            
+            Random n = new Random();
+            int[] arr = new int[10000];
+
+            for (int i = 0; i < arr.Length-1; i++)
+            {
+                arr[i] = n.Next();
+            }
+            s.Insertion(arr);
+            foreach(var c in arr) { Console.WriteLine(c); }
+
+        }
+    }
+}
