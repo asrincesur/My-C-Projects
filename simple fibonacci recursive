@@ -1,0 +1,23 @@
+  static int fib(int n)
+        {
+            if (n <= 2)
+                return 1;
+            else
+                return fib(n-1) + fib(n - 2);
+
+
+        }
+
+
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("adım sayısını giriniz: ");
+            int n = Convert.ToInt16(Console.ReadLine());
+
+            for (int i = 1; i <= n; i++) {
+                Console.WriteLine("{0}.adım = {1}", i, fib(i));
+
+            }
+            Console.Read();
+        }
