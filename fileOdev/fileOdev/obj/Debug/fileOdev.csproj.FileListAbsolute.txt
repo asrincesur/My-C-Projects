@@ -1,0 +1,10 @@
+C:\Users\Asrin\source\repos\fileOdev\fileOdev\bin\Debug\fileOdev.exe.config
+C:\Users\Asrin\source\repos\fileOdev\fileOdev\bin\Debug\fileOdev.exe
+C:\Users\Asrin\source\repos\fileOdev\fileOdev\bin\Debug\fileOdev.pdb
+C:\Users\Asrin\source\repos\fileOdev\fileOdev\obj\Debug\fileOdev.csprojAssemblyReference.cache
+C:\Users\Asrin\source\repos\fileOdev\fileOdev\obj\Debug\fileOdev.Form1.resources
+C:\Users\Asrin\source\repos\fileOdev\fileOdev\obj\Debug\fileOdev.Properties.Resources.resources
+C:\Users\Asrin\source\repos\fileOdev\fileOdev\obj\Debug\fileOdev.csproj.GenerateResource.cache
+C:\Users\Asrin\source\repos\fileOdev\fileOdev\obj\Debug\fileOdev.csproj.CoreCompileInputs.cache
+C:\Users\Asrin\source\repos\fileOdev\fileOdev\obj\Debug\fileOdev.exe
+C:\Users\Asrin\source\repos\fileOdev\fileOdev\obj\Debug\fileOdev.pdb
